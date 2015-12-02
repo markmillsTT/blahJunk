@@ -1,0 +1,49 @@
+SAFENET-APPLIANCE-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Copyright 2013 SafeNet, Inc. All rights reserved.
+--
+-- All rights reserved. This file contains information that is
+-- proprietary to SafeNet, Inc. and may not be distributed
+-- or copied without written consent from SafeNet, Inc.
+--
+
+
+IMPORTS
+    MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-TYPE, enterprises, 
+       Counter64, Unsigned32, Gauge32  FROM SNMPv2-SMI
+    DisplayString, TruthValue FROM SNMPv2-TC
+    luna FROM SAFENET-GLOBAL-MIB;
+
+
+
+appliance MODULE-IDENTITY
+    LAST-UPDATED "201305060000Z"
+    ORGANIZATION "www.safenet-inc.com"
+    CONTACT-INFO    
+     "postal: 20 Colonnade Rd.
+                    Ottawa, ON
+                    Canada
+                    xxxxxx
+
+      phone:    1-613-723-2628
+      email:    support@safenet-inc.com"
+    DESCRIPTION
+     "
+           SafeNet MIB defintion for LunaSA specific managed objects.
+
+     "
+    REVISION     "201305060000Z"
+    DESCRIPTION  "First release"
+    ::= { luna 2 }
+
+
+appSoftwareVersion OBJECT-TYPE
+   SYNTAX      DisplayString
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Appliance Software Version number."
+    ::= { appliance 1 }   
+    
+END
